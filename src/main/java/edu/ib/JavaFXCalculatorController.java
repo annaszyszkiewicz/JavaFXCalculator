@@ -62,61 +62,71 @@ public class JavaFXCalculatorController {
 
     @FXML
     void addition(ActionEvent event) {
-        if (previousStep == true && !textNext.getText().endsWith("+")) {
+        if (previousStep && !textNext.getText().endsWith("+"))
             textNext.setText(textNext.getText().substring(0, textNext.getLength() - 1) + "+");
-            operation = "+";
-            previousStep = true;
-        } else {
+
+        else if (textNext.getText().endsWith(operation) && !previousStep) {
             textNext.setText(textNext.getText() + textInput.getText() + "+");
-            operation = "+";
-            previousStep = true;
-        }
+            textInput.setText(result);
+
+        } else if (!previousStep)
+            textNext.setText(textNext.getText() + textInput.getText() + "+");
+
+        operation = "+";
+        previousStep = true;
+        result = textInput.getText();
     }
 
     @FXML
     void subtraction(ActionEvent event) {
-        if (previousStep == true && !textNext.getText().endsWith("-")) {
+        if (previousStep && !textNext.getText().endsWith("-"))
             textNext.setText(textNext.getText().substring(0, textNext.getLength() - 1) + "-");
-            operation = "-";
-            previousStep = true;
-        } else {
+
+        else if (textNext.getText().endsWith(operation) && !previousStep) {
             textNext.setText(textNext.getText() + textInput.getText() + "-");
-            operation = "-";
-            previousStep = true;
-        }
+            textInput.setText(result);
+
+        } else if (!previousStep)
+            textNext.setText(textNext.getText() + textInput.getText() + "-");
+
+        operation = "-";
+        previousStep = true;
+        result = textInput.getText();
     }
 
     @FXML
     void division(ActionEvent event) {
-        if (previousStep == true) {
+        if (previousStep && !textNext.getText().endsWith("/"))
             textNext.setText(textNext.getText().substring(0, textNext.getLength() - 1) + "/");
-            operation = "/";
-            previousStep = true;
-            //textInput.setText(x.multi(textInput.getText(),result));
-            result = textInput.getText();
 
-        } else {
+        else if (textNext.getText().endsWith(operation) && !previousStep) {
             textNext.setText(textNext.getText() + textInput.getText() + "/");
-            operation = "/";
-            previousStep = true;
-            textInput.setText(x.multi(textInput.getText(),result));
-            result = textInput.getText();
-        }
+            //textInput.setText(result);
+
+        } else if (!previousStep)
+            textNext.setText(textNext.getText() + textInput.getText() + "/");
+
+        operation = "/";
+        previousStep = true;
+        //result = textInput.getText();
+        System.out.println(result);
     }
 
     @FXML
     void multiplication(ActionEvent event) {
-        if (textNext.getText().endsWith(operation) && !previousStep) {
-            textInput.setText(x.multi(textInput.getText(),result));
+        if (previousStep && !textNext.getText().endsWith("*"))
+            textNext.setText(textNext.getText().substring(0, textNext.getLength() - 1) + "*");
+
+       else if (textNext.getText().endsWith(operation) && !previousStep) {
             textNext.setText(textNext.getText() + textInput.getText() + "*");
-            result = textInput.getText();
-        } else if (!previousStep){
+            textInput.setText(result);
+
+        } else if (!previousStep)
             textNext.setText(textNext.getText() + textInput.getText() + "*");
-            result = textInput.getText();
-            textInput.setText(x.multi(textInput.getText(),result));
-        }
+
         operation = "*";
         previousStep = true;
+        result = textInput.getText();
     }
 
     @FXML
@@ -178,28 +188,28 @@ public class JavaFXCalculatorController {
                 }
                 break;
             case "3":
-                if (textInput.getText().equals("0") || previousStep == true) {
+                if (textInput.getText().equals("0") || previousStep) {
                     textInput.setText("3");
                 } else {
                     textInput.setText(textInput.getText() + "3");
                 }
                 break;
             case "4":
-                if (textInput.getText().equals("0") || previousStep == true) {
+                if (textInput.getText().equals("0") || previousStep) {
                     textInput.setText("4");
                 } else {
                     textInput.setText(textInput.getText() + "4");
                 }
                 break;
             case "5":
-                if (textInput.getText().equals("0") || previousStep == true) {
+                if (textInput.getText().equals("0") || previousStep) {
                     textInput.setText("5");
                 } else {
                     textInput.setText(textInput.getText() + "5");
                 }
                 break;
             case "6":
-                if (textInput.getText().equals("0") || previousStep == true) {
+                if (textInput.getText().equals("0") || previousStep) {
                     textInput.setText("6");
                 } else {
                     textInput.setText(textInput.getText() + "6");
@@ -237,6 +247,12 @@ public class JavaFXCalculatorController {
 
         }
         previousStep = false;
+        switch (operation) {
+            case "+" -> result = x.add(result, textInput.getText());
+            case "-" -> result = x.sub(result, textInput.getText());
+            case "/" -> result = x.div(result, textInput.getText());
+            case "*" -> result = x.multi(result, textInput.getText());
+        }
     }
 
 

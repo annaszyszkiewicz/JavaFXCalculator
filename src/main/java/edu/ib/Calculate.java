@@ -2,6 +2,27 @@ package edu.ib;
 
 public class Calculate {
 
+    public String add(String number, String previousNumber){
+        String result = String.valueOf(Double.parseDouble(previousNumber)+Double.parseDouble(number));
+        if (result.endsWith(".0"))
+            result = result.substring(0,result.length()-2);
+        return result;
+    }
+
+    public String sub(String number, String previousNumber){
+        String result = String.valueOf(Double.parseDouble(previousNumber)-Double.parseDouble(number));
+        if (result.endsWith(".0"))
+            result = result.substring(0,result.length()-2);
+        return result;
+    }
+
+    public String div(String number, String previousNumber){
+        String result = String.valueOf(Double.parseDouble(previousNumber)/Double.parseDouble(number));
+        if (result.endsWith(".0"))
+            result = result.substring(0,result.length()-2);
+        return result;
+    }
+
     public String multi(String number, String previousNumber){
         String result = String.valueOf(Double.parseDouble(number)*Double.parseDouble(previousNumber));
         if (result.endsWith(".0"))

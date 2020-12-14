@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.Glow?>
@@ -12,9 +11,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="all" stylesheets="@calculator.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ib.JavaFXCalculatorController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" styleClass="all" stylesheets="@calculator.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ib.JavaFXCalculatorController">
    <center>
       <GridPane alignment="CENTER" prefHeight="241.0" prefWidth="400.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -230,18 +228,6 @@
          </opaqueInsets>
       </GridPane>
    </center>
-   <right>
-      <VBox minHeight="-Infinity" prefHeight="400.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_RIGHT">
-         <children>
-            <Text fill="#000000a9" strokeType="OUTSIDE" strokeWidth="0.0" text="Historia:" wrappingWidth="43.400390625">
-               <VBox.margin>
-                  <Insets left="10.0" top="7.0" />
-               </VBox.margin>
-            </Text>
-            <TextArea fx:id="textHistory" prefHeight="388.0" prefWidth="200.0" style="-fx-base: 255, 255, 255;" />
-         </children>
-      </VBox>
-   </right>
    <top>
       <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="400.0" BorderPane.alignment="TOP_LEFT">
          <children>
