@@ -43,32 +43,40 @@ public class JavaFXCalculatorController {
         if (textNext.getText().contains("=")) {
             String o = textNext.getText();
             switch (operation) {
-                case "+" -> {
+                case "+":
                     textInput.setText(x.add(textInput.getText(), o.substring(o.lastIndexOf("+") + 1, o.length() - 1)));
                     o = o.substring(o.lastIndexOf("+") + 1, o.length() - 1);
-                }
-                case "-" -> {
+                    break;
+                case "-":
                     textInput.setText(x.sub(textInput.getText(), o.substring(o.lastIndexOf("-") + 1, o.length() - 1)));
                     o = o.substring(o.lastIndexOf("-") + 1, o.length() - 1);
-                }
-                case "/" -> {
+                    break;
+                case "/":
                     textInput.setText(x.div(textInput.getText(), o.substring(o.lastIndexOf("/") + 1, o.length() - 1)));
                     o = o.substring(o.lastIndexOf("/") + 1, o.length() - 1);
-                }
-                case "*" -> {
+                    break;
+                case "*":
                     textInput.setText(x.multi(textInput.getText(), o.substring(o.lastIndexOf("*") + 1, o.length() - 1)));
                     o = o.substring(o.lastIndexOf("*") + 1, o.length() - 1);
-                }
+                    break;
             }
             if (!textNext.getText().equals("0="))
                 textNext.setText(x.getValue() + operation + o + "=");
         } else {
             textNext.setText(textNext.getText() + textInput.getText() + "=");
             switch (operation) {
-                case "+" -> textInput.setText(x.add(textInput.getText(), x.getValue()));
-                case "-" -> textInput.setText(x.sub(textInput.getText(), x.getValue()));
-                case "/" -> textInput.setText(x.div(textInput.getText(), x.getValue()));
-                case "*" -> textInput.setText(x.multi(textInput.getText(), x.getValue()));
+                case "+":
+                    textInput.setText(x.add(textInput.getText(), x.getValue()));
+                    break;
+                case "-":
+                    textInput.setText(x.sub(textInput.getText(), x.getValue()));
+                    break;
+                case "/":
+                    textInput.setText(x.div(textInput.getText(), x.getValue()));
+                    break;
+                case "*":
+                    textInput.setText(x.multi(textInput.getText(), x.getValue()));
+                    break;
             }
         }
     }
@@ -135,10 +143,18 @@ public class JavaFXCalculatorController {
                 textNext.setText(textNext.getText().substring(0, textNext.getLength() - 1) + "+");
             else {
                 switch (operation) {
-                    case "+" -> textInput.setText(x.add(textInput.getText(), x.getValue()));
-                    case "-" -> textInput.setText(x.sub(textInput.getText(), x.getValue()));
-                    case "/" -> textInput.setText(x.div(textInput.getText(), x.getValue()));
-                    case "*" -> textInput.setText(x.multi(textInput.getText(), x.getValue()));
+                    case "+":
+                        textInput.setText(x.add(textInput.getText(), x.getValue()));
+                        break;
+                    case "-":
+                        textInput.setText(x.sub(textInput.getText(), x.getValue()));
+                        break;
+                    case "/":
+                        textInput.setText(x.div(textInput.getText(), x.getValue()));
+                        break;
+                    case "*":
+                        textInput.setText(x.multi(textInput.getText(), x.getValue()));
+                        break;
                 }
             }
         }
@@ -165,13 +181,20 @@ public class JavaFXCalculatorController {
                 textNext.setText(textNext.getText().substring(0, textNext.getLength() - 1) + "-");
             else {
                 switch (operation) {
-                    case "+" -> textInput.setText(x.add(textInput.getText(), x.getValue()));
-                    case "-" -> textInput.setText(x.sub(textInput.getText(), x.getValue()));
-                    case "/" -> textInput.setText(x.div(textInput.getText(), x.getValue()));
-                    case "*" -> textInput.setText(x.multi(textInput.getText(), x.getValue()));
+                    case "+":
+                        textInput.setText(x.add(textInput.getText(), x.getValue()));
+                        break;
+                    case "-":
+                        textInput.setText(x.sub(textInput.getText(), x.getValue()));
+                        break;
+                    case "/":
+                        textInput.setText(x.div(textInput.getText(), x.getValue()));
+                        break;
+                    case "*":
+                        textInput.setText(x.multi(textInput.getText(), x.getValue()));
+                        break;
                 }
             }
-
         }
         operation = "-";
         previousStep = true;
@@ -196,10 +219,18 @@ public class JavaFXCalculatorController {
                 textNext.setText(textNext.getText().substring(0, textNext.getLength() - 1) + "/");
             else {
                 switch (operation) {
-                    case "+" -> textInput.setText(x.add(textInput.getText(), x.getValue()));
-                    case "-" -> textInput.setText(x.sub(textInput.getText(), x.getValue()));
-                    case "/" -> textInput.setText(x.div(textInput.getText(), x.getValue()));
-                    case "*" -> textInput.setText(x.multi(textInput.getText(), x.getValue()));
+                    case "+":
+                        textInput.setText(x.add(textInput.getText(), x.getValue()));
+                        break;
+                    case "-":
+                        textInput.setText(x.sub(textInput.getText(), x.getValue()));
+                        break;
+                    case "/":
+                        textInput.setText(x.div(textInput.getText(), x.getValue()));
+                        break;
+                    case "*":
+                        textInput.setText(x.multi(textInput.getText(), x.getValue()));
+                        break;
                 }
             }
         }
@@ -226,10 +257,18 @@ public class JavaFXCalculatorController {
                 textNext.setText(textNext.getText().substring(0, textNext.getLength() - 1) + "*");
             else {
                 switch (operation) {
-                    case "+" -> textInput.setText(x.add(textInput.getText(), x.getValue()));
-                    case "-" -> textInput.setText(x.sub(textInput.getText(), x.getValue()));
-                    case "/" -> textInput.setText(x.div(textInput.getText(), x.getValue()));
-                    case "*" -> textInput.setText(x.multi(textInput.getText(), x.getValue()));
+                    case "+":
+                        textInput.setText(x.add(textInput.getText(), x.getValue()));
+                        break;
+                    case "-":
+                        textInput.setText(x.sub(textInput.getText(), x.getValue()));
+                        break;
+                    case "/":
+                        textInput.setText(x.div(textInput.getText(), x.getValue()));
+                        break;
+                    case "*":
+                        textInput.setText(x.multi(textInput.getText(), x.getValue()));
+                        break;
                 }
             }
         }
@@ -260,7 +299,6 @@ public class JavaFXCalculatorController {
     void reciprocal(ActionEvent event) {
         textInput.setText(x.reverse(textInput.getText()));
         previousStep = false;
-
     }
 
     /**
@@ -285,7 +323,6 @@ public class JavaFXCalculatorController {
     void extractRoot(ActionEvent event) {
         textInput.setText(x.sqrt(textInput.getText()));
         previousStep = false;
-
     }
 
     /**
